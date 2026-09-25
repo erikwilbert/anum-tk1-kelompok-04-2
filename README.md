@@ -8,8 +8,8 @@ Proyek ini berisi implementasi komputasi numerik untuk penyelesaian Sistem Persa
 ## Anggota Kelompok 04 (Genap)
 | No | Nama | NPM | Peran & Tanggung Jawab |
 |---|---|---|---|
-| 1 | **Erik Wilbert** | `2406495376` | **Person A**: Numerical Solvers & Theory (Poin iii, iv, v + Pseudocode) |
-| 2 | *[Nama Anggota 2]* | *[NPM]* | **Person B**: Data Pipeline & Financial Modeling (Poin i, ii, vi, vii + README) |
+| 1 | **Erik Wilbert** | `2406495376` | Soal Nomor 2: Poin iii, iv, v, dan Pseudocode |
+| 2 | *[Nama Anggota 2]* | *[NPM]* | Soal Nomor 2: Poin i, ii, vi, vii, dan README.md |
 | 3 | *[Nama Anggota 3]* | *[NPM]* | Soal Nomor 1: Analisis Perpindahan Penumpang Antarhalte |
 | 4 | *[Nama Anggota 4]* | *[NPM]* | Soal Nomor 1: Analisis Perpindahan Penumpang Antarhalte |
 
