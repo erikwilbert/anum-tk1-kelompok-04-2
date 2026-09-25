@@ -1,8 +1,6 @@
 # Tugas Kelompok 1 — Analisis Numerik (Gasal 2026/2027)
 **Sistem Persamaan Linear dan Least Squares Problem**
 
-Proyek ini berisi implementasi komputasi numerik untuk penyelesaian Sistem Persamaan Linear (SPL) dan Least Squares Problem (LSP) pada model **Self-Exciting Threshold Autoregressive (SETAR)** 2-rezim (Soal Nomor 2).
-
 ---
 
 ## Anggota Kelompok 04 (Genap)
@@ -12,14 +10,6 @@ Proyek ini berisi implementasi komputasi numerik untuk penyelesaian Sistem Persa
 | 2 | *[Nama Anggota 2]* | *[NPM]* | Soal Nomor 2: Poin i, ii, vi, vii, dan README.md |
 | 3 | *[Nama Anggota 3]* | *[NPM]* | Soal Nomor 1: Analisis Perpindahan Penumpang Antarhalte |
 | 4 | *[Nama Anggota 4]* | *[NPM]* | Soal Nomor 1: Analisis Perpindahan Penumpang Antarhalte |
-
----
-
-## Metode Khusus (Kelompok Genap)
-Sesuai petunjuk Soal 2 Poin iv, kelompok genap diwajibkan menggunakan:
-* **Faktorisasi QR**: Metode **Givens Rotations** (manual *from scratch*, tanpa pustaka SPL/LSP).
-* **Pembanding**: Metode **Persamaan Normal** ($A^T A \vec{x} = A^T \vec{b}$).
-* **Verifikasi Khusus**: Menentukan representasi matriks rotasi $G_k$ yang mengeliminasi elemen sub-diagonal pertama matriks $A$, serta memverifikasi hasil $G_k A$.
 
 ---
 
