@@ -145,7 +145,6 @@ Output: Vektor solusi x_LS berukuran N, matriks R berukuran N x N
      Untuk j dari 0 hingga N - 1:
        Untuk i dari j + 1 hingga M - 1:
          Jika |R[i, j]| > 1e-15 maka:
-           // Hitung parameter rotasi stabil
            a <- R[j, j], b_val <- R[i, j]
            Jika |b_val| > |a| maka:
              tau <- -a / b_val
@@ -156,13 +155,11 @@ Output: Vektor solusi x_LS berukuran N, matriks R berukuran N x N
              c <- 1.0 / Sqrt(1.0 + tau^2)
              s <- c * tau
 
-           // Update baris j dan baris i pada R
            baris_j <- R[j, j:], baris_i <- R[i, j:]
            R[j, j:] <- c * baris_j - s * baris_i
            R[i, j:] <- s * baris_j + c * baris_i
            R[i, j]  <- 0.0
 
-           // Update elemen vektor target d
            dj <- d[j], di <- d[i]
            d[j] <- c * dj - s * di
            d[i] <- s * dj + c * di
