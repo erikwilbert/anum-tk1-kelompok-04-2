@@ -31,7 +31,7 @@ Sesuai petunjuk Soal 2 Poin iv, kelompok genap diwajibkan menggunakan:
 ├── README.md
 ├── Kontrak_Kerja_Nomor_2_SETAR.pdf   # Dokumen spesifikasi kontrak antarmuka
 ├── main.py                          # Entry point eksekusi pipeline lengkap
-├── test_toy.py                      # Sandbox pengujian solver (Halaman 10 PDF)
+├── test_solvers.py                  # Pengujian mandiri solver numerik (Unit Test & Hal. 10 PDF)
 ├── data/
 │   ├── .gitkeep
 │   ├── stock_train.csv              # Dataset latih (303 baris observasi)
@@ -62,9 +62,9 @@ pip install -r requirements.txt
 ```
 
 ### 2. Menjalankan Kode
-* **Uji Mandiri Solver Numerik (Toy Example Hal. 10 PDF)**:
+* **Uji Mandiri Solver Numerik**:
   ```powershell
-  python test_toy.py
+  python test_solvers.py
   ```
 * **Menjalankan Pipeline Lengkap (Data Latih & Uji)**:
   ```powershell

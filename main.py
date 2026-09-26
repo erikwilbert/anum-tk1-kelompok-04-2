@@ -20,7 +20,7 @@ def main():
         print("Silakan unduh 'stock_train.csv' dan 'stock_test.csv' dari SCeLE")
         print("lalu tempatkan di direktori 'data/'.")
         print("\nUntuk uji coba solver numerik mandiri tanpa CSV, jalankan:")
-        print("  python test_toy.py")
+        print("  python test_solvers.py")
         return
 
     print("\n[1] Menjalankan Data Pipeline...")

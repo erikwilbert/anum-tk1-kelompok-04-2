@@ -1,5 +1,5 @@
 """
-Sandbox Pengujian Solver Numerik Soal 2 (Model SETAR)
+Pengujian Solver Numerik Soal 2 (Model SETAR)
 Penanggung Jawab: Person A (Erik Wilbert)
 Metode: Givens Rotations & Persamaan Normal
 """
@@ -20,7 +20,6 @@ def test_first_givens_on_toy():
     print("   Menggunakan Matriks Ilustrasi Halaman 10 PDF")
     print("=" * 70)
 
-    # Matriks 3 baris dari contoh ilustrasi halaman 10 PDF
     A_toy = np.array([
         [0.0,  0.0000,  0.0000, 1.0, -0.0198, +0.0100],
         [1.0, +0.0152, -0.0198, 0.0,  0.0000,  0.0000],
@@ -41,7 +40,6 @@ def test_first_givens_on_toy():
     print("\nHasil perkalian G1 @ A:")
     print(np.round(G1_A, 6))
 
-    # Verifikasi elemen (1, 0) harus nol
     assert abs(G1_A[1, 0]) < 1e-14, f"Elemen sub-diagonal pertama gagal dieliminasi! Nilai = {G1_A[1, 0]}"
     print("\n[VERIFIKASI SUKSES]: Elemen G1_A[1, 0] = 0.000000 (tereliminasi secara sempurna).")
 
@@ -52,14 +50,11 @@ def test_overdetermined_system():
     print("   Menggunakan Sistem Uji Overdetermined Sintetis (M=12, N=6)")
     print("=" * 70)
 
-    # Buat data sintetis deret return realistis (15 titik waktu -> 12 baris persamaan, 6 parameter)
     np.random.seed(42)
     m_samples = 20
     n_params = 6
 
-    # Konstruksi matriks berstruktur SETAR (indikator 0/1 dan return kecil)
     A_synth = np.zeros((m_samples, n_params), dtype=np.float64)
-    # Return tiruan sekitar 1-3%
     returns = np.random.normal(loc=0.001, scale=0.015, size=m_samples + 2)
 
     for idx, t in enumerate(range(2, len(returns))):
@@ -79,12 +74,8 @@ def test_overdetermined_system():
     print(f"Dimensi Matriks Desain A : {A_synth.shape}")
     print(f"Dimensi Vektor Target b  : {b_synth.shape}")
 
-    # Eksekusi Solver 1: Persamaan Normal
     res_normal = solve_normal_equations(A_synth, b_synth)
-    # Eksekusi Solver 2: Givens QR
     res_givens = solve_givens_qr(A_synth, b_synth)
-
-    # Ground truth pembanding (hanya untuk sanity check unit test)
     x_numpy_ref, _, _, _ = np.linalg.lstsq(A_synth, b_synth, rcond=None)
 
     print("\n--- HASIL ESTIMASI PARAMETER x ---")
@@ -95,7 +86,6 @@ def test_overdetermined_system():
     for i in range(n_params):
         print(f"{param_names[i]:<12} | {res_normal['x'][i]:<18.6e} | {res_givens['x'][i]:<18.6e} | {x_numpy_ref[i]:<18.6e}")
 
-    # Cek galat perbedaan antara solver kita dengan numpy reference
     diff_norm = np.linalg.norm(res_givens['x'] - x_numpy_ref)
     assert diff_norm < 1e-10, f"Selisih solusi Givens QR terlalu besar: {diff_norm}"
     print(f"\n[VALIDASI SUKSES]: Selisih Givens QR vs NumPy LSTSQ = {diff_norm:.2e} (Cocok sempurna!)")
@@ -112,7 +102,6 @@ def test_overdetermined_system():
     print(f"Waktu Eksekusi Persamaan Normal    : {res_normal['execution_time_ms']:.4f} ms")
     print(f"Waktu Eksekusi Givens QR           : {res_givens['execution_time_ms']:.4f} ms")
 
-    # Evaluasi metrik RMSE menggunakan helper bersama
     pred_givens = predict(A_synth, res_givens['x'])
     rmse_val = calculate_rmse(b_synth, pred_givens)
     print(f"Root Mean Square Error (RMSE)      : {rmse_val:.6e}")
