@@ -1,7 +1,3 @@
-"""
-Modul Utilitas Bersama: Evaluasi, Prediksi & Metrik
-"""
-
 import numpy as np
 
 
