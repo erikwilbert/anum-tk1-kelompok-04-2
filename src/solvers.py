@@ -1,6 +1,8 @@
 import time
 import numpy as np
 
+from src.kondisi import singular_values
+
 def back_substitution(U: np.ndarray, y: np.ndarray) -> np.ndarray:
     """
     Menyelesaikan sistem persamaan linear segitiga atas: U x = y
@@ -122,10 +124,10 @@ def solve_normal_equations(A: np.ndarray, b: np.ndarray) -> dict:
     res = np.dot(A, x) - b
     res_norm = float(np.linalg.norm(res, ord=2))
 
-    s_A = np.linalg.svd(A, compute_uv=False)
+    s_A = singular_values(A)
     cond_A = float(s_A[0] / s_A[-1]) if s_A[-1] > 1e-15 else np.inf
 
-    s_ATA = np.linalg.svd(ATA, compute_uv=False)
+    s_ATA = singular_values(ATA)
     cond_ATA = float(s_ATA[0] / s_ATA[-1]) if s_ATA[-1] > 1e-15 else np.inf
 
     return {
