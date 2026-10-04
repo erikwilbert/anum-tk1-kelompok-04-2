@@ -52,7 +52,7 @@ Metode kelompok genap: **Rotasi Givens (QR)** dan **Persamaan Normal (GEPP)**. K
 Return harian dihitung dari harga penutupan:
 
 $$R_t = \frac{P_t - P_{t-1}}{P_{t-1}}, \qquad I_t = \mathbb{1}(R_{t-1} \ge 0)$$
-
+ 
 Setiap baris matriks desain $A$ dan target $b$:
 
 $$A_{t,:} = [\,I_t,\; I_t R_{t-1},\; I_t R_{t-2},\; 1-I_t,\; (1-I_t) R_{t-1},\; (1-I_t) R_{t-2}\,], \qquad b_t = R_t$$
